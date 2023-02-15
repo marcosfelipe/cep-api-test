@@ -4,13 +4,13 @@ Projeto teste com Ruby 3 Rails 6.1.2
 
 Para rodar o projeto rode os comandos:
 
-* bundle install - Para instalar as dependencias
+* docker compose up
 
-* rake db:create  - Para criar o banco de dados
+* docker-compose run web rake db:create
 
-* rake db:migrate - Para rodar as migrações
+* docker-compose run web rake db:migrate
 
-* rails s - Para rodar o projeto
+* acessar o sistema em http://localhost:3000
 
 # Para criar usuários 
 
