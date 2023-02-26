@@ -51,5 +51,6 @@ module Ruby3
 
     # Default timezone
     config.time_zone = 'America/Sao_Paulo'
+    config.active_job.queue_adapter = :sidekiq
   end
 end
