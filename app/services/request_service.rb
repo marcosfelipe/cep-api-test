@@ -20,7 +20,8 @@ class RequestService
     else
       begin
         res = prepare_return_json(JSON.parse(@http.request(@req).body))
-        AddressesService.new(res, @user).save
+        AddressCreatorJob.perform_later(address_attributes: res,
+                                        user_id: user.id)
         [res, :ok]
       rescue Net::ReadTimeout
       rescue Net::OpenTimeout
@@ -32,6 +33,8 @@ class RequestService
   end
 
   private
+
+  attr_reader :user
 
   def prepare_return_json(data)
     zip = data['cep'].gsub('-','')
