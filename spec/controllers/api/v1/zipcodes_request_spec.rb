@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'devise/jwt/test_helpers'
 
 RSpec.describe "Api::V1::Zipcodes", type: :request do
   before do
