@@ -1,5 +1,7 @@
-Rails.application.routes.draw do
+require 'sidekiq/web'
 
+Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
   root 'application#api'
   devise_for :users, skip: [:registrations, :sessions, :passwords]
   devise_scope :user do
