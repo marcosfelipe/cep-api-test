@@ -16,5 +16,13 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  redis:
+    image: redis
+    volumes:
+      - redis-data:/var/lib/redis
+    ports:
+      - "6379:6379"
 volumes:
+  redis-data:
+    driver: local
   postgres:
